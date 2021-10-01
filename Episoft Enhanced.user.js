@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Episoft Enhanced
 // @namespace    Episoft-Enhanced
-// @version      0.1
+// @version      0.4
 // @description  Adds functionality to enhance the end user experience
 // @match        https://www.episoft.com.au/epiCommunities/*
 // @icon         https://episofthealth.com/wp-content/uploads/2019/10/e_only_favicon.png
