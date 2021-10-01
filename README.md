@@ -21,4 +21,4 @@ To use user scripts you need to first install a user script manager. Which user 
 </ul>
 
 ## Step 2: use the user script
-<a href="https://github.com/BoKu/Episoft-Enhanced/raw/main/Episoft%20Enhanced.user.js" target="_blank" style="padding:.5em 1em; background-color:#005200; color:#fff;" >Install this script</a>
+[![Install this script](https://via.placeholder.com/300x60/005200/ffffff.png?text=Install%20this%20script)](https://github.com/BoKu/Episoft-Enhanced/raw/main/Episoft%20Enhanced.user.js)
