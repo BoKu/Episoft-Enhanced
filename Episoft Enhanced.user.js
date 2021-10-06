@@ -50,6 +50,10 @@ jQuery( document ).ready(function( $ ) {
                 });
                 $(this).children("td:nth-child(2)").append(NoteButton);
             }catch(err){console.log(err)}
+            //Remove footer - it can cause issues on certain browsers, and it's not coded to work very well anyway.
+            try{
+                $("div#footer-menu").remove();
+            }catch(err){console.log(err)}
         });
     }
     if(CurrentPage == "/epiCommunities/CareZone/VisitForms/VisitNotesStandalone.aspx"){
