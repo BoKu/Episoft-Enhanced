@@ -2,7 +2,7 @@
 // @name         Episoft Enhanced
 // @namespace    Episoft-Enhanced
 // @homepage     https://github.com/BoKu/Episoft-Enhanced
-// @version      0.8
+// @version      0.9
 // @description  Adds functionality to enhance the end user experience
 // @match        https://www.episoft.com.au/epiCommunities/*
 // @icon         https://episofthealth.com/wp-content/uploads/2019/10/e_only_favicon.png
@@ -41,6 +41,30 @@ $.noConflict();
 jQuery( document ).ready(function( $ ) {
     'use strict';
     var CurrentPage = window.location.pathname;
+    //VisitNotesStandalone.aspx
+    if(CurrentPage == "/epiCommunities/CareZone/VisitForms/VisitNotesStandalone.aspx"){
+        // Fix the Close button
+        try{
+            $("#btnClose, #btnClose2").on("click", function(event){
+            event.preventDefault();
+            window.open("https://www.episoft.com.au/epiCommunities/CareZone/Appointments/AppointmentManagement.aspx", "_self");
+        });
+        }catch(err){console.log(err)}
+        //Fix the Save and Close button
+        try{
+            $("#btnSaveAndClose, #btnSaveAndClose2").on("click", function(event){
+                event.preventDefault();
+                SetCookie("WindowCanClose", "true", 0);
+                $("#btnSave").click();
+            });
+            //Check to see if the current window can close, deletes the cookie and navigates back.
+            let WindowCanClose = GetCookie("WindowCanClose");
+            if(WindowCanClose == "true"){
+                SetCookie("WindowCanClose", "true", -1);
+                $("#btnClose").click();
+            }
+        }catch(err){console.log(err)}
+    }
     //AppointmentManagement.aspx
     if(CurrentPage == "/epiCommunities/CareZone/Appointments/AppointmentManagement.aspx"){
         let ctl00_cpContent_rgPatientAppointmentList_ctl00 = $("#ctl00_cpContent_rgPatientAppointmentList_ctl00");
@@ -76,30 +100,13 @@ jQuery( document ).ready(function( $ ) {
                 });
                 $(this).children("td:nth-child(2)").append(NoteButton);
             }catch(err){console.log(err)}
-            //Remove footer - it can cause issues on certain browsers, and it's not coded to work very well anyway.
-            try{
-                $("div#footer-menu").remove();
-            }catch(err){console.log(err)}
         });
-    }
-    //VisitNotesStandalone.aspx
-    if(CurrentPage == "/epiCommunities/CareZone/VisitForms/VisitNotesStandalone.aspx"){
-        // Fix the close button
-        $("#btnClose, #btnClose2").on("click", function(event){
-            event.preventDefault();
-            window.open("https://www.episoft.com.au/epiCommunities/CareZone/Appointments/AppointmentManagement.aspx", "_self");
-        });
-        //Fix the save and close button
-        $("#btnSaveAndClose, #btnSaveAndClose2").on("click", function(event){
-            event.preventDefault();
-            SetCookie("WindowCanClose", "true", 0);
-            $("#btnSave").click();
-        });
-        //Check to see if the current window can close, deletes the cookie and navigates back.
-        let WindowCanClose = GetCookie("WindowCanClose");
-        if(WindowCanClose == "true"){
-            SetCookie("WindowCanClose", "true", -1);
-            $("#btnClose").click();
-        }
+        //Relocate footer menu - it can cause issues on certain browsers, and it's not coded to work very well anyway.
+        try{
+            let HelpURL = $("a#hlHelpBottom").attr("href");
+            $("div#ctl00_pbMenu > ul").append('<li class="rpItem"><a class="rpLink rpRootLink" href="'+HelpURL+'"><span class="rpText">Help</span></a></li>');
+            $("div#ctl00_pbMenu > ul").append('<li class="rpItem"><a class="rpLink rpRootLink" href="http://www.episoft.com.au/contact-us.html" target="_blank"><span class="rpText">Contact Us</span></a></li>');
+            $("div#footer-menu").remove();
+        }catch(err){console.log(err)}
     }
 });
