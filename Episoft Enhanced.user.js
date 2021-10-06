@@ -2,7 +2,7 @@
 // @name         Episoft Enhanced
 // @namespace    Episoft-Enhanced
 // @homepage     https://github.com/BoKu/Episoft-Enhanced
-// @version      0.9
+// @version      1
 // @description  Adds functionality to enhance the end user experience
 // @match        https://www.episoft.com.au/epiCommunities/*
 // @icon         https://episofthealth.com/wp-content/uploads/2019/10/e_only_favicon.png
@@ -103,9 +103,26 @@ jQuery( document ).ready(function( $ ) {
         });
         //Relocate footer menu - it can cause issues on certain browsers, and it's not coded to work very well anyway.
         try{
+            //Help button
             let HelpURL = $("a#hlHelpBottom").attr("href");
-            $("div#ctl00_pbMenu > ul").append('<li class="rpItem"><a class="rpLink rpRootLink" href="'+HelpURL+'"><span class="rpText">Help</span></a></li>');
-            $("div#ctl00_pbMenu > ul").append('<li class="rpItem"><a class="rpLink rpRootLink" href="http://www.episoft.com.au/contact-us.html" target="_blank"><span class="rpText">Contact Us</span></a></li>');
+            let HelpLink = $('<li class="rpItem"><a class="rpLink rpRootLink" href="'+HelpURL+'"><span class="rpText">Help</span></a></li>');
+            HelpLink.on("mouseover", function(){
+                $(this).children("a").addClass("rpHovered");
+            });
+            HelpLink.on("mouseout", function(){
+                $(this).children("a").removeClass("rpHovered");
+            });
+            $("div#ctl00_pbMenu > ul").append(HelpLink);
+            //Contact Us button
+            let ContactUsLink = $('<li class="rpItem"><a class="rpLink rpRootLink" href="http://www.episoft.com.au/contact-us.html" target="_blank"><span class="rpText">Contact Us</span></a></li>');
+            ContactUsLink.on("mouseover", function(){
+                $(this).children("a").addClass("rpHovered");
+            });
+            ContactUsLink.on("mouseout", function(){
+                $(this).children("a").removeClass("rpHovered");
+            });
+            $("div#ctl00_pbMenu > ul").append(ContactUsLink);
+            //Remove the existing menu
             $("div#footer-menu").remove();
         }catch(err){console.log(err)}
     }
