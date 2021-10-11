@@ -9,15 +9,14 @@ User scripts put you in control of your browsing experience. Once installed, the
 To use user scripts you need to first install a user script manager. Which user script manager you can use depends on which browser you use.
 
 <ul>
-  <li>Chrome: <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo">Tampermonkey</a> or <a href="https://chrome.google.com/webstore/detail/violent-monkey/jinjaccalgkegednnccohejagnlnfdag">Violentmonkey</a></li>
-  <li>Firefox: <a href="https://addons.mozilla.org/firefox/addon/greasemonkey/">Greasemonkey</a>, <a href="https://addons.mozilla.org/firefox/addon/tampermonkey/">Tampermonkey</a>, or <a href="https://addons.mozilla.org/firefox/addon/violentmonkey/">Violentmonkey</a></li>
-  <li>Safari: <a href="http://tampermonkey.net/?browser=safari">Tampermonkey</a> or <a href="https://apps.apple.com/app/userscripts/id1463298887">Userscripts</a></li>
-  <li>Microsoft Edge: <a href="https://www.microsoft.com/store/p/tampermonkey/9nblggh5162s">Tampermonkey</a></li>
-  <li>Opera: <a href="https://addons.opera.com/extensions/details/tampermonkey-beta/">Tampermonkey</a> or <a href="https://violentmonkey.github.io/get-it/">Violentmonkey</a></li>
-  <li>Maxthon: <a href="http://extension.maxthon.com/detail/index.php?view_id=1680">Violentmonkey</a></li>
-  <li>Dolphin: <a href="https://play.google.com/store/apps/details?id=net.tampermonkey.dolphin">Tampermonkey</a></li>
-  <li>UC: <a href="https://www.tampermonkey.net/?browser=ucweb&amp;ext=dhdg">Tampermonkey</a></li>
-  <li>AdGuard: (no additional software required)</li>
+  <li>Chrome: <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank">Tampermonkey</a> or <a href="https://chrome.google.com/webstore/detail/violent-monkey/jinjaccalgkegednnccohejagnlnfdag" target="_blank">Violentmonkey</a></li>
+  <li>Firefox: <a href="https://addons.mozilla.org/firefox/addon/greasemonkey/" target="_blank">Greasemonkey</a>, <a href="https://addons.mozilla.org/firefox/addon/tampermonkey/" target="_blank">Tampermonkey</a>, or <a href="https://addons.mozilla.org/firefox/addon/violentmonkey/" target="_blank">Violentmonkey</a></li>
+  <li>Safari: <a href="http://tampermonkey.net/?browser=safari" target="_blank">Tampermonkey</a> or <a href="https://apps.apple.com/app/userscripts/id1463298887" target="_blank">Userscripts</a></li>
+  <li>Microsoft Edge: <a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd" target="_blank">Tampermonkey</a></li>
+  <li>Opera: <a href="https://addons.opera.com/extensions/details/tampermonkey-beta/" target="_blank">Tampermonkey</a> or <a href="https://violentmonkey.github.io/get-it/" target="_blank">Violentmonkey</a></li>
+  <li>Maxthon: <a href="http://extension.maxthon.com/detail/index.php?view_id=1680" target="_blank">Violentmonkey</a></li>
+  <li>Dolphin: <a href="https://play.google.com/store/apps/details?id=net.tampermonkey.dolphin" target="_blank">Tampermonkey</a></li>
+  <li>UC: <a href="https://www.tampermonkey.net/?browser=ucweb&amp;ext=dhdg" target="_blank">Tampermonkey</a></li>
 </ul>
 
 ## Step 2: use the user script
