@@ -2,7 +2,7 @@
 // @name         Episoft Enhanced
 // @namespace    Episoft-Enhanced
 // @homepage     https://github.com/BoKu/Episoft-Enhanced
-// @version      1
+// @version      2
 // @description  Adds functionality to enhance the end user experience
 // @match        https://www.episoft.com.au/epiCommunities/*
 // @icon         https://episofthealth.com/wp-content/uploads/2019/10/e_only_favicon.png
@@ -41,6 +41,35 @@ $.noConflict();
 jQuery( document ).ready(function( $ ) {
     'use strict';
     var CurrentPage = window.location.pathname;
+    //PatientHome.aspx
+    if(CurrentPage == "/epiCommunities/CareZone/PatientHome.aspx"){
+        try{
+            $("tr").each(function(index){
+                if($(this).hasClass("DocRow")){
+                    let RowID = $(this).attr("id");
+                    let FileID = RowID.split("_")[1];
+                    let TypeID = RowID.split("_")[0];
+                    let FileType = $(this).children("td:nth-child(4)").text();
+                    if($.inArray(FileType, ["Photograph, Clinical"]) >= 0){
+                        console.log(RowID, FileID, TypeID, FileType);
+                        $("#" + RowID).on("mouseenter", function(){
+                            let WindowWidth = window.innerWidth / 2
+                            let WindowHeight = window.innerHeight / 2
+                            let NewImage = $("<img>", {
+                                "id": "ee_FloatingImage",
+                                "style": "left:" + (WindowWidth) + "px; top:" + (WindowHeight - 250) + "px; position:fixed; z-index:9001; border:1px solid grey; max-width:500px; max-height:500px;",
+                                "src": "https://www.episoft.com.au/epiCommunities/CareZone/Document/ViewDocument.aspx?id=" + FileID + "&type=" + TypeID
+                            });
+                            NewImage.appendTo("body");
+                        });
+                        $("#" + RowID).on("mouseleave", function(){
+                            $("#ee_FloatingImage").remove();
+                        });
+                    }
+                }
+            });
+        }catch(err){console.log(err)}
+    }
     //VisitNotesStandalone.aspx
     if(CurrentPage == "/epiCommunities/CareZone/VisitForms/VisitNotesStandalone.aspx"){
         // Fix the Close button
